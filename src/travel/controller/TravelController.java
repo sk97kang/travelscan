@@ -1,4 +1,4 @@
-package controller;
+package travel.controller;
 
 import java.io.IOException;
 
@@ -9,8 +9,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import travel.action.ListAction;
+
 @WebServlet("/travelscan/*")
-public class Controller extends HttpServlet {
+public class TravelController extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
@@ -27,12 +29,12 @@ public class Controller extends HttpServlet {
 		// System.out.println(uri);
 		String action = uri.substring(uri.lastIndexOf("/") + 1);
 		if (action.equals("*")) {
-			action = "home.do";
+			action = "main.do";
 		}
 		String next = "";
 
-		if (action.equals("home.do")) {
-			next = "/pages/home.jsp";
+		if (action.equals("main.do")) {
+			next = "/pages/main.jsp";
 		}
 
 		if (!next.equals("")) {
